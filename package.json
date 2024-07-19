@@ -6,12 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
     "@clerk/nextjs": "5.2.5-snapshot.v910e99d",
     "@neondatabase/serverless": "^0.9.4",
     "drizzle-orm": "^0.32.0",
+    "inngest": "^3.21.1",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"

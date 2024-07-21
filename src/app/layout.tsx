@@ -22,38 +22,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // this weird control statement is due to some kind of issue getting Clerk working
-  // see the discussion in: https://github.com/clerk/javascript/issues/2736#issuecomment-2239873782
-  if (false) {
-    return (
-      <ClerkProvider>
-        <html lang="en">
-          <body className={inter.className}>
-            <header>
-              <SignedOut>
-                <SignInButton />
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-            </header>
-            <main>{children}</main>
-          </body>
-        </html>
-      </ClerkProvider>
-    );
-  } else {
-    return (
-      <ClerkProvider>
-        <html lang="en">
-          <body className={inter.className}>
-            <header>
-              <Header />
-            </header>
-            <main>{children}</main>
-          </body>
-        </html>
-      </ClerkProvider>
-    );
-  }
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <header className="flex flex-col items-end justify-between p-4">
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header>
+          <main>{children}</main>
+        </body>
+      </html>
+    </ClerkProvider>
+  );
 }
